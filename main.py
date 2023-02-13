@@ -233,3 +233,5 @@ async def chat_websocket(websocket: WebSocket, token: str):
             manager.disconnect(websocket, sender)
             response['message'] = "left"
             await manager.broadcast(response)
+            if not manager.active_connections:
+                chat.sessions.pop(token)
