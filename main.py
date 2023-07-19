@@ -34,6 +34,11 @@ chat = Chat()
 
 
 def get_token() -> str:
+    """Generates 5 character long token used for chat sessions
+
+    Returns:
+        str: 5 character long string representing session token
+    """
     token = "".join(choice(ascii_letters + "0123456789") for _ in range(5))
     if token in chat.sessions:
         return get_token()
